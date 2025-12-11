@@ -1,15 +1,167 @@
+/* Общий фон и выравнивание */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
-  padding: 40px;
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  color: #e5e7eb;
+  min-height: 100vh;
 }
 
-#avatarWrapper {
-  margin-top: 20px;
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 100vh;
 }
 
-#avatarImg {
-  display: block;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+/* Шапка */
+
+.header {
+  text-align: center;
+}
+
+.title {
+  font-size: 28px;
+  margin: 0 0 8px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #9ca3af;
+}
+
+/* Основной контент */
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.controls {
+  margin-top: 8px;
+}
+
+/* Кнопка */
+
+.button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, opacity 0.1s ease;
+}
+
+.button_primary {
+  background: #3b82f6;
+  color: #f9fafb;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+}
+
+.button_primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(37, 99, 235, 0.6);
+}
+
+.button_primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.5);
+}
+
+/* Карточка аватара */
+
+.card {
+  width: 100%;
+  max-width: 480px;
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: 18px;
+  padding: 20px 20px 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.card__title {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #e5e7eb;
+}
+
+/* Область аватара */
+
+.avatar-wrapper {
+  width: 100%;
+  min-height: 220px;
+  border-radius: 14px;
+  background: radial-gradient(circle at top, #1e293b, #020617 65%);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.avatar-img {
+  display: none; /* пока нет аватара – скрыто */
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7);
+}
+
+/* Подпись до генерации */
+
+.avatar-placeholder {
+  margin: 0;
+  font-size: 14px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+/* Футер */
+
+.footer {
+  margin-top: auto;
+  padding-top: 8px;
+  font-size: 12px;
+  text-align: center;
+  color: #6b7280;
+  border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.footer__text {
+  opacity: 0.85;
+}
+
+/* Адаптивность */
+
+@media (max-width: 480px) {
+  .page {
+    padding: 20px 12px 16px;
+  }
+
+  .card {
+    padding: 16px 14px 18px;
+  }
+
+  .avatar-wrapper {
+    min-height: 200px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
 }
