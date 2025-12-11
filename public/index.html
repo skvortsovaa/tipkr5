@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Генератор случайных аватаров</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Генератор случайных аватаров</h1>
+
+  <button id="gen">Сгенерировать аватар</button>
+
+  <div id="avatarWrapper">
+    <img id="avatarImg" alt="" />
+  </div>
+
+  <script>
+    document.getElementById('gen').addEventListener('click', async () => {
+      const res = await fetch('/api/avatar/random');
+      const av = await res.json();
+
+      const img = document.getElementById('avatarImg');
+
+      img.src = av.image;
+      img.style.width = av.size + "px";
+      img.style.height = av.size + "px";
+    });
+  </script>
+
+</body>
+</html>
